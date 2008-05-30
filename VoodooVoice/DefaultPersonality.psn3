@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Personality>
+  <Name>Default</Name>
+  <Description>Default Personality</Description>
+  <Mode name="Sleeping">
+    <Command phrase="computer">
+      <PlaySound file="wakeup.wav" />
+      <ActivateMode name="Awake" />
+    </Command>
+  </Mode>
+  <Mode name="Awake">
+    <Command phrase="begin play">
+      <PlaySound file="goize1.wav" />
+      <Play />
+    </Command>
+    <Command phrase="next song">
+      <PlaySound file="goize2.wav" />
+      <Next />
+    </Command>
+    <Command phrase="previous song">
+      <PlaySound file="goize2.wav" />
+      <Previous />
+    </Command>
+    <Command phrase="stop play">
+      <PlaySound file="goize1.wav" />
+      <Stop />
+    </Command>
+    <Command phrase="switch to playlist [playlistName]">
+      <PlaySound file="goize1.wav" />
+      <SwitchToPlaylist />
+    </Command>
+    <Command phrase="switch to [title]">
+      <PlaySound file="goize2.wav" />
+      <SwitchTo />
+    </Command>
+    <Command phrase="play something by [artist]">
+      <PlaySound file="goize1.wav" />
+      <SwitchTo />
+    </Command>
+    <Command phrase="something else">
+      <PlaySound file="goize1.wav" />
+      <Next sameArtist="true"/>
+    </Command>
+    <Command phrase="go back to that last one">
+      <PlaySound file="goize1.wav" />
+      <Previous sameArtist="true"/>
+    </Command>
+    <Command phrase="What is this?">
+      <SetVolume percent="40" mode="AdjustByPercent" />
+      <ReadTitle />
+      <SetVolume mode="RestoreLast" />
+    </Command>
+    <Command phrase="increase volume">
+      <PlaySound file="goize1.wav" />
+      <SetVolume percent="10" mode="IncreaseByAbsolute" />
+    </Command>
+    <Command phrase="decrease volume">
+      <PlaySound file="goize1.wav" />
+      <SetVolume percent="10" mode="ReduceByAbsolute" />
+    </Command>
+    <Command phrase="set volume [percent] percent">
+      <PlaySound file="goize1.wav" />
+      <SetVolume mode="Set" />
+    </Command>
+    <Command phrase="enable shuffle">
+      <PlaySound file="goize1.wav" />
+      <SetShuffle enable="true" />
+    </Command>
+    <Command phrase="disable shuffle">
+      <PlaySound file="goize1.wav" />
+      <SetShuffle enable="false" />
+    </Command>
+    <Command phrase="repeat song">
+      <PlaySound file="goize1.wav" />
+      <SetRepeat mode="RepeatSong" />
+    </Command>
+    <Command phrase="repeat playlist">
+      <PlaySound file="goize1.wav" />
+      <SetRepeat mode="RepeatPlaylist" />
+    </Command>
+    <Command phrase="disable repeat">
+      <PlaySound file="goize1.wav" />
+      <SetRepeat mode="PlayPlaylistOnce" />
+    </Command>
+    <Command phrase="speak truth">
+      <SetVolume percent="40" mode="AdjustByPercent" />
+      <Say phrase="Voodoo Voice rocks!" />
+      <SetVolume mode="RestoreLast" />
+    </Command>
+    <Unrecognized>
+      <PlaySound file="error.wav" />
+    </Unrecognized>
+  </Mode>
+</Personality>

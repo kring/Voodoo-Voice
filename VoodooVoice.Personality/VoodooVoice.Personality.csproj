@@ -1,0 +1,96 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{563A576D-1A3D-472D-B67F-6BCFDEA3B830}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FuzzLab.VoodooVoice</RootNamespace>
+    <AssemblyName>VoodooVoice.Personality</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PersonalityActionChooseRandom.cs" />
+    <Compile Include="PersonalityActionGroup.cs" />
+    <Compile Include="PersonalityActionSay.cs" />
+    <Compile Include="PersonalityActionSetRepeat.cs" />
+    <Compile Include="Personality.cs" />
+    <Compile Include="PersonalityAction.cs" />
+    <Compile Include="PersonalityActionActivateMode.cs" />
+    <Compile Include="PersonalityActionNext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PersonalityActionPlay.cs" />
+    <Compile Include="PersonalityActionPlaySound.cs" />
+    <Compile Include="PersonalityActionPrevious.cs" />
+    <Compile Include="PersonalityActionReadTitle.cs" />
+    <Compile Include="PersonalityActionSetShuffle.cs" />
+    <Compile Include="PersonalityActionSetVolume.cs" />
+    <Compile Include="PersonalityActionStop.cs" />
+    <Compile Include="PersonalityActionSwitchTo.cs" />
+    <Compile Include="PersonalityActionSwitchToPlaylist.cs" />
+    <Compile Include="PersonalityCommand.cs" />
+    <Compile Include="PersonalityManager.cs" />
+    <Compile Include="PersonalityMode.cs" />
+    <Compile Include="PlaylistProgressEventArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EventLog\EventLog.csproj">
+      <Project>{8654133F-E54E-48A5-BDE7-A54D311205FC}</Project>
+      <Name>EventLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mp3Player\Mp3Player.csproj">
+      <Project>{AC1477D7-E8D8-4150-A15E-9DA2DAFC9D3E}</Project>
+      <Name>Mp3Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpeechSynthesis\SpeechSynthesis.csproj">
+      <Project>{EC020013-D9A8-4AE1-B5AD-592BBCA3C2C8}</Project>
+      <Name>SpeechSynthesis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{7A5AC811-6286-4414-AD4C-838D42BF2029}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VoiceRecognition\VoiceRecognition.csproj">
+      <Project>{739DDE1B-52E0-4105-B9B2-6E33A74C7F16}</Project>
+      <Name>VoiceRecognition</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,163 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A6F6B66E-18D0-4B64-9FDF-A63B423752CB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FuzzLab.VoodooVoice</RootNamespace>
+    <AssemblyName>VoodooVoice</AssemblyName>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+    <ManifestCertificateThumbprint>F56435108F5BD02771E34E691D932997E9B44415</ManifestCertificateThumbprint>
+    <ManifestKeyFile>VoodooVoice_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>ftp://www.voodoo-voice.com/www/voodoo-voice/publish/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.voodoo-voice.com/publish/</InstallUrl>
+    <SupportUrl>http://www.voodoo-voice.com</SupportUrl>
+    <ProductName>Voodoo Voice 3.0 for iTunes</ProductName>
+    <PublisherName>Fuzz Lab Software</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainThread.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <Content Include="DefaultPersonality.psn3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="VoodooVoice_TemporaryKey.pfx" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EventLog\EventLog.csproj">
+      <Project>{8654133F-E54E-48A5-BDE7-A54D311205FC}</Project>
+      <Name>EventLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mp3Player\Mp3Player.csproj">
+      <Project>{AC1477D7-E8D8-4150-A15E-9DA2DAFC9D3E}</Project>
+      <Name>Mp3Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpeechSynthesis\SpeechSynthesis.csproj">
+      <Project>{EC020013-D9A8-4AE1-B5AD-592BBCA3C2C8}</Project>
+      <Name>SpeechSynthesis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{7A5AC811-6286-4414-AD4C-838D42BF2029}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VoiceRecognition\VoiceRecognition.csproj">
+      <Project>{739DDE1B-52E0-4105-B9B2-6E33A74C7F16}</Project>
+      <Name>VoiceRecognition</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VoodooVoice.Personality\VoodooVoice.Personality.csproj">
+      <Project>{563A576D-1A3D-472D-B67F-6BCFDEA3B830}</Project>
+      <Name>VoodooVoice.Personality</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Mp3Player.iTunes\bin\Release\Interop.iTunesLib.dll">
+      <Link>Interop.iTunesLib.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Mp3Player.iTunes\bin\Release\Mp3Player.iTunes.dll">
+      <Link>Mp3Player.iTunes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="error.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="goize1.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="goize2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Logo.ico" />
+    <Content Include="wakeup.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Speech.API.and.Engines.for.Voodoo.Voice">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Speech API and engines for Vooodoo Voice</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,20 @@
+<VSBootstrapperManifest>
+  <ProjectProperties ProjectName="Microsoft Speech API and Engines for Voodoo Voice" BuildLocation="PackagesDir" BuildDirectory="C:\Program Files\Microsoft Visual Studio 8\SDK\v2.0\Bootstrapper\Packages\New Project" DefaultLanguage="en" />
+  <UIPackage ProductCode="Microsoft.Speech.API.and.Engines.for.Voodoo.Voice">
+    <UIChecks />
+    <Relationships />
+    <CustomSchedules />
+  </UIPackage>
+  <UIInstallFile FileName="C:\depot\VoodooVoice\SapiInstaller\Release\SapiInstaller.msi" DisplayName="Microsoft Speech API and engines for Vooodoo Voice" Arguments="" Reboot="" HomeSiteURL="http://www.voodoo-voice.com/Downloads/SapiInstaller.msi" PublicKey="&lt;&lt;File is not Digitally Signed&gt;&gt;" FileHash="1F5D6C5436E6FB4E9CF7D73800BC2FFD9F419702" IncludeHash="True" Locale="en">
+    <UIChecks>
+      <ExternalCheck FileName="C:\depot\VoodooVoice\release\CheckForSapiEngineNative.exe" Property="SapiEngineAvailable" Arguments="" />
+    </UIChecks>
+    <UIInstallConditions>
+      <UIInstallCondition Type="ByPassIf" Property="SapiEngineAvailable" Operator="=" Value="0" Message="" />
+    </UIInstallConditions>
+    <UIExitCodes>
+      <UIExitCode ExitCode="0" Result="Success" Message="" />
+    </UIExitCodes>
+    <LooseFiles />
+  </UIInstallFile>
+</VSBootstrapperManifest>
